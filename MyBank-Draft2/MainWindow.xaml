@@ -3,44 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MyBank_Draft2"
         mc:Ignorable="d"
-            Title="MainWindow" Height="700" Width="1200" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+            Title="MainWindow" Height="700" Width="1200" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" MouseDown="Window_MouseDown">
     <Border CornerRadius="20" Background="#12171d" BorderBrush="Black" >
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="350"/>
-                <RowDefinition Height="200"/>
-            </Grid.RowDefinitions>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Image Source="/Assets/Pictures/Blue_Flat_Illustrated_Finance_Company_Logo-removebg-preview.png" Grid.ColumnSpan="3" Margin="327,0,327,123" Grid.RowSpan="3" />
-
-            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" Width="325" Margin="5">
-
-                <!--<TextBlock Grid.Row="2" Grid.Column="1" x:Name="errorOUT" Text="Placeholder" Foreground="White" Background="Red" HorizontalAlignment="Center" Margin="0,0,0,15"/>-->
-
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-                    <Label Content="Username" Foreground="White" FontSize="12" FontWeight="Medium" Margin="15,0,10,0"/>
-                    <TextBox x:Name="userIN" Width="215" FontSize="14"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
-                    <Label Content="Password" Foreground="White" FontSize="12" FontWeight="Medium" Margin="15,0,13.5,0"/>
-                    <PasswordBox x:Name="passIN" Width="215" FontSize="14"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="loginBTN" Content="Log In" Width="100" Height="30" Margin="5" Click="loginBTN_Click"/>
-                    <Button x:Name="newBTN" Content="New User" Width="100" Height="30" Margin="5"/>
-                </StackPanel>
-            </StackPanel>
-        </Grid>
+        <Frame x:Name="StartupFrame" NavigationUIVisibility="Hidden"/>
     </Border>
 </Window>

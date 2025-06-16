@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyBank_Draft2.Pages.Main;
+using MyBank_Draft2.Windows.Main;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,103 +22,33 @@ namespace MyBank_Draft2
     /// </summary>
     public partial class MainWindow : Window
     {
-        Database db;
-        string role;
+        SignUp newUser;
+        Login login;
+
         public MainWindow()
         {
             InitializeComponent();
-            LoadDatabase();
+            LoadLogin();
         }
 
-        public void LoadDatabase()
+        public void LoadLogin()
         {
-            db = new Database();
+            login = new Login();
+            StartupFrame.Content = login;
         }
-
-        private void loginBTN_Click(object sender, RoutedEventArgs e)
+       
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (String.IsNullOrEmpty(userIN.Text) || String.IsNullOrEmpty(passIN.Password))
+            if (e.LeftButton==MouseButtonState.Pressed)
             {
-                MessageBox.Show("Error 1");
-                return;
-            }
-
-            if (UserExists(out role))
-            {
-                if (VerifiedPassword(role))
-                {
-                    OpenWindow(role);
-                }
+                DragMove();
             }
         }
 
-        private bool UserExists(out string role)
+        public void NavToNew()
         {
-            var possibleCustomer = (from c in db.GetCustomer()
-                                    where c.Customer_Email == userIN.Text
-                                    select c).FirstOrDefault();
-
-            var possibleAdmin = (from a in db.GetAdmin()
-                                    where a.Admin_Email == userIN.Text
-                                    select a).FirstOrDefault();
-
-            if (possibleCustomer != null)
-            {
-                role = "Customer";
-                return true;
-            }
-            else if (possibleCustomer != null)
-            {
-                role = "Admin";
-                return true;
-            }
-            else
-            {
-                role = null;
-                return false;
-            }
-        }
-        private bool VerifiedPassword(string role)
-        {
-            if (role == "Customer")
-            {
-                var user = (from c in db.GetCustomer()
-                            where c.Customer_Email == userIN.Text
-                            select c).FirstOrDefault();
-
-                if (user.Customer_Password == passIN.Password)
-                {
-                    return true;
-                }
-            }
-            else if (role == "Admin")
-            {
-                var user = (from a in db.GetAdmin()
-                            where a.Admin_Email == userIN.Text
-                            select a).FirstOrDefault();
-
-                if (user.Admin_Password == passIN.Password)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-        private void OpenWindow(string role)
-        {
-            if (role == "Customer")
-            {
-                CustomerWindow customerWindow = new CustomerWindow();
-                customerWindow.Show();
-                this.Close();
-            }
-            else if (role == "Admin")
-            {
-                AdminWindow adminWindow = new AdminWindow();
-                adminWindow.Show();
-                this.Close();
-            }
+            newUser = new SignUp();
+            StartupFrame.Content = newUser;
         }
     }
 }

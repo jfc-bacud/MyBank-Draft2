@@ -10,19 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using LiveCharts;
-using MaterialDesignColors;
-using MaterialDesignThemes;
 
-namespace MyBank_Draft2
+namespace MyBank_Draft2.Pages.Main
 {
     /// <summary>
-    /// Interaction logic for CustomerWindow.xaml
+    /// Interaction logic for SignUp.xaml
     /// </summary>
-    public partial class CustomerWindow : Window
+    public partial class SignUp : Page
     {
-        public CustomerWindow()
+        public SignUp()
         {
             InitializeComponent();
         }

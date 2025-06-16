@@ -1,0 +1,52 @@
+﻿<Page x:Class="MyBank_Draft2.Windows.Main.Login"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:MyBank_Draft2.Windows.Main"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="Login">
+
+    <Border CornerRadius="20" Background="#12171d" BorderBrush="Black" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="350"/>
+                <RowDefinition Height="200"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="25"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="/Assets/Pictures/Blue_Flat_Illustrated_Finance_Company_Logo-removebg-preview.png" Grid.Column="2"  Grid.Row="1" Grid.ColumnSpan="3" Margin="336,0,336,141" Grid.RowSpan="2" />
+
+            <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Vertical" HorizontalAlignment="Center" Width="325" Margin="5" Height="275">
+
+                <Label Content="Username" Foreground="White" FontSize="12" FontWeight="Medium" FontFamily="Montserrat" Margin="0,0,0,5"/>
+                <TextBox x:Name="userIN"
+                      FontSize="14" Foreground="White"
+                      materialDesign:TextFieldAssist.UnderlineBrush="Green" FontFamily="Montserrat"
+                      Width="315" CaretBrush="Green"/>
+
+                <Label Content="Password" Foreground="White" FontSize="12" FontWeight="Medium" FontFamily="Montserrat" Margin="0,15,0,5"/>
+                <PasswordBox x:Name="passIN" FontSize="14" Foreground="White"
+                           materialDesign:TextFieldAssist.UnderlineBrush="Green" 
+                          Width="315" CaretBrush="Green"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,25,0,0">
+                    <Button x:Name="loginBTN" Content="Log In" Width="100" Height="30" Margin="5" Click="loginBTN_Click" Foreground="Black" BorderBrush="Black" Background="White"/>
+                    <Button x:Name="newBTN" Content="New User" Width="100" Height="30" Margin="5" Foreground="Black" BorderBrush="Black" Background="White" Click="newBTN_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Page>

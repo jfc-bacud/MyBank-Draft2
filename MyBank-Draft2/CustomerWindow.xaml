@@ -3,17 +3,67 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MyBank_Draft2"
         mc:Ignorable="d"
             Title="Customer Window" Height="700" Width="1200" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
     <Border CornerRadius="20" Background="#12171d" BorderBrush="Black" >
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Border Grid.Column="1" Width="5" Background="#222b34"/>
+            <!--<Border Grid.Column="1" Width="5" Background="#222b34"/>-->
+
+            <materialDesign:ColorZone Grid.Column="0" Background="#161d24" Height="700" CornerRadius="20 0 0 20" >
+                <StackPanel Margin="15">
+                    <WrapPanel Margin="0 5 0 60" HorizontalAlignment="Center">
+                        
+                    </WrapPanel>
+                    <Button materialDesign:ButtonAssist.CornerRadius="6" materialDesign:ElevationAssist.Elevation="Dp0" Width="Auto" Height="35" Background="#161d24" BorderBrush="#161d24" Margin="0 15 0 0">
+                        <WrapPanel Width="120">
+                            <materialDesign:PackIcon Kind="Home" VerticalAlignment="Center" Margin="0 0 15 0"/>
+                            <TextBlock>Home</TextBlock>
+                        </WrapPanel>
+                    </Button>
+
+                    <Button materialDesign:ButtonAssist.CornerRadius="6" materialDesign:ElevationAssist.Elevation="Dp0" Width="Auto" Height="35" Background="#161d24" BorderBrush="#161d24" Margin="0 15 0 0">
+                        <WrapPanel Width="120">
+                            <materialDesign:PackIcon Kind="SwapHorizontal" VerticalAlignment="Center" Margin="0 0 15 0"/>
+                            <TextBlock>Transactions</TextBlock>
+                        </WrapPanel>
+                    </Button>
+
+                    <Button materialDesign:ButtonAssist.CornerRadius="6" materialDesign:ElevationAssist.Elevation="Dp0" Width="Auto" Height="35" Background="#161d24" BorderBrush="#161d24" Margin="0 15 0 0">
+                        <WrapPanel Width="120">
+                            <materialDesign:PackIcon Kind="Book" VerticalAlignment="Center" Margin="0 0 15 0"/>
+                            <TextBlock>Categories</TextBlock>
+                        </WrapPanel>
+                    </Button>
+
+                    <Button materialDesign:ButtonAssist.CornerRadius="6" materialDesign:ElevationAssist.Elevation="Dp0" Width="Auto" Height="35" Background="#161d24" BorderBrush="#161d24" Margin="0 15 0 0">
+                        <WrapPanel Width="120">
+                            <materialDesign:PackIcon Kind="BarChart" VerticalAlignment="Center" Margin="0 0 15 0"/>
+                            <TextBlock>Reports</TextBlock>
+                        </WrapPanel>
+                    </Button>
+
+                    <Button materialDesign:ButtonAssist.CornerRadius="6" materialDesign:ElevationAssist.Elevation="Dp0" Width="Auto" Height="35" Background="#161d24" BorderBrush="#161d24" Margin="0 15 0 0">
+                        <WrapPanel Width="120">
+                            <materialDesign:PackIcon Kind="Gear" VerticalAlignment="Center" Margin="0 0 15 0"/>
+                            <TextBlock>Settings</TextBlock>
+                        </WrapPanel>
+                    </Button>
+
+                    <Button materialDesign:ButtonAssist.CornerRadius="6" materialDesign:ElevationAssist.Elevation="Dp0" Width="Auto" Height="35" Background="#161d24" BorderBrush="#161d24" Margin="0 15 0 0">
+                        <WrapPanel Width="120">
+                            <materialDesign:PackIcon Kind="AccountArrowLeft" VerticalAlignment="Center" Margin="0 0 15 0"/>
+                            <TextBlock>Log Out</TextBlock>
+                        </WrapPanel>
+                    </Button>
+
+                </StackPanel>
+            </materialDesign:ColorZone>
             
         </Grid>
     </Border>
