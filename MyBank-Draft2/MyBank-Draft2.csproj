@@ -166,6 +166,12 @@
     <Folder Include="Pages\AdminWindow\" />
     <Folder Include="Pages\CustomerWindow\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Pictures\green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Pictures\logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.2.2-ci998\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.2.2-ci998\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

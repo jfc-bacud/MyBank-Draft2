@@ -17,9 +17,10 @@
 
             <materialDesign:ColorZone Grid.Column="0" Background="#161d24" Height="700" CornerRadius="20 0 0 20" >
                 <StackPanel Margin="15">
-                    <WrapPanel Margin="0 5 0 60" HorizontalAlignment="Center">
-                        
-                    </WrapPanel>
+                    <StackPanel Orientation="Horizontal" Height="50" Width="162" Margin="0 0 0 25">
+                        <Image Source="/Assets/Pictures/logo.png" />
+                        <TextBlock Text="MyBank" FontSize="25" FontWeight="Medium" FontFamily="Inter" Foreground="#327b3b" VerticalAlignment="Center"/>
+                    </StackPanel>
                     <Button materialDesign:ButtonAssist.CornerRadius="6" materialDesign:ElevationAssist.Elevation="Dp0" Width="Auto" Height="35" Background="#161d24" BorderBrush="#161d24" Margin="0 15 0 0">
                         <WrapPanel Width="120">
                             <materialDesign:PackIcon Kind="Home" VerticalAlignment="Center" Margin="0 0 15 0"/>
@@ -64,7 +65,7 @@
 
                 </StackPanel>
             </materialDesign:ColorZone>
-            
+
         </Grid>
     </Border>
 </Window>

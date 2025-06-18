@@ -25,7 +25,7 @@
                     <TextBlock Text="Welcome to " FontSize="40" FontWeight="Medium" FontFamily="Inter" Foreground="White"/>
                     <TextBlock Text="MyBank!" FontSize="40" FontWeight="Medium" FontFamily="Inter" Foreground="Green"/>
                 </WrapPanel>
-                
+
                 <Label Content="First Name" Foreground="White" FontSize="15" FontWeight="Medium" FontFamily="Montserrat" Margin="0,0,0,5"/>
                 <TextBox x:Name="fnameIN"
                 FontSize="14" Foreground="White"
@@ -44,14 +44,33 @@
                 <Label Content="Password" Foreground="White" FontSize="15" FontWeight="Medium" FontFamily="Montserrat" Margin="0,15,0,5"/>
                 <TextBox x:Name="passIN" FontSize="14" Foreground="White" materialDesign:TextFieldAssist.UnderlineBrush="Green" FontFamily="Montserrat" Width="Auto" CaretBrush="Green"/>
 
-                <Button x:Name="Continue" Content="Continue" Width="100" Height="30" Margin="0 30 0 0 " Click="loginBTN_Click" Foreground="Black" BorderBrush="Black" Background="White" />
+                <Button x:Name="Continue" Content="Continue" Width="200" Height="40" Margin="0 70 0 0 " Foreground="Black" BorderBrush="Black" Background="White" Click="Continue_Click" />
 
                 <WrapPanel Orientation="Horizontal" Margin="0 15 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Border BorderThickness="0 1 0 0" BorderBrush="Gray" Width="100" VerticalAlignment="Center"/>
                     <TextBlock Text="or" Width="Auto" Height="Auto" Foreground="White" Margin="10 0 10 0" FontFamily="Monsterrat" FontWeight="Medium"/>
                     <Border BorderThickness="0 1 0 0" BorderBrush="Gray" Width="100" VerticalAlignment="Center"/>
                 </WrapPanel>
+
+                <Button Width="200" Height="40" Background="White" BorderBrush="#757575" BorderThickness="1"
+                 HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" Margin="0 15 0 0"
+                 Click="SignUpWithGoogle_Click">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="Google" VerticalAlignment="Center" Margin="0 0 15 0" Foreground="Black"/>
+                        <TextBlock Text="Sign up with Google" Foreground="#424242" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
             </StackPanel>
+
+            <Border CornerRadius="0 20 20 0" Height="Auto" Margin="0,0,-398,-73" Grid.Column="1" Grid.RowSpan="2" >
+                <Border.Background>
+                    <ImageBrush ImageSource = "/Assets/Pictures/green.png"/>
+                </Border.Background>
+            </Border>
+
+
+
         </Grid>
     </Border>
 </Page>

@@ -10,7 +10,7 @@ namespace MyBank_Draft2
 {
     internal class Database
     {
-        MyBankDataClassDataContext db;
+        public MyBankDataClassDataContext db;
 
         public Database()
         {
@@ -24,7 +24,6 @@ namespace MyBank_Draft2
                 
             return customerList;
         }
-
         public List<Admin> GetAdmin()
         {
             List<Admin> adminList = (from a in db.Admins
