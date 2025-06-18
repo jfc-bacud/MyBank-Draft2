@@ -10,7 +10,48 @@
       Title="SignUp">
     <Border CornerRadius="20" Background="#12171d" BorderBrush="Black" >
         <Grid>
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="800"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
+                <WrapPanel Orientation="Horizontal" Margin="0 20 0 40">
+                    <TextBlock Text="Welcome to " FontSize="40" FontWeight="Medium" FontFamily="Inter" Foreground="White"/>
+                    <TextBlock Text="MyBank!" FontSize="40" FontWeight="Medium" FontFamily="Inter" Foreground="Green"/>
+                </WrapPanel>
+                
+                <Label Content="First Name" Foreground="White" FontSize="15" FontWeight="Medium" FontFamily="Montserrat" Margin="0,0,0,5"/>
+                <TextBox x:Name="fnameIN"
+                FontSize="14" Foreground="White"
+                materialDesign:TextFieldAssist.UnderlineBrush="Green" FontFamily="Montserrat"
+                Width="Auto" CaretBrush="Green"/>
+
+                <Label Content="Last Name" Foreground="White" FontSize="15" FontWeight="Medium" FontFamily="Montserrat" Margin="0,15,0,5"/>
+                <TextBox x:Name="lnameIN"
+                FontSize="14" Foreground="White"
+                materialDesign:TextFieldAssist.UnderlineBrush="Green" FontFamily="Montserrat"
+                Width="Auto" CaretBrush="Green"/>
+
+                <Label Content="Email" Foreground="White" FontSize="15" FontWeight="Medium" FontFamily="Montserrat" Margin="0,15,0,5"/>
+                <TextBox x:Name="emailIN" FontSize="14" Foreground="White" materialDesign:TextFieldAssist.UnderlineBrush="Green" FontFamily="Montserrat" Width="Auto" CaretBrush="Green"/>
+
+                <Label Content="Password" Foreground="White" FontSize="15" FontWeight="Medium" FontFamily="Montserrat" Margin="0,15,0,5"/>
+                <TextBox x:Name="passIN" FontSize="14" Foreground="White" materialDesign:TextFieldAssist.UnderlineBrush="Green" FontFamily="Montserrat" Width="Auto" CaretBrush="Green"/>
+
+                <Button x:Name="Continue" Content="Continue" Width="100" Height="30" Margin="0 30 0 0 " Click="loginBTN_Click" Foreground="Black" BorderBrush="Black" Background="White" />
+
+                <WrapPanel Orientation="Horizontal" Margin="0 15 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Border BorderThickness="0 1 0 0" BorderBrush="Gray" Width="100" VerticalAlignment="Center"/>
+                    <TextBlock Text="or" Width="Auto" Height="Auto" Foreground="White" Margin="10 0 10 0" FontFamily="Monsterrat" FontWeight="Medium"/>
+                    <Border BorderThickness="0 1 0 0" BorderBrush="Gray" Width="100" VerticalAlignment="Center"/>
+                </WrapPanel>
+            </StackPanel>
         </Grid>
     </Border>
 </Page>

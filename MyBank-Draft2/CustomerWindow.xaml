@@ -55,10 +55,10 @@
                         </WrapPanel>
                     </Button>
 
-                    <Button materialDesign:ButtonAssist.CornerRadius="6" materialDesign:ElevationAssist.Elevation="Dp0" Width="Auto" Height="35" Background="#161d24" BorderBrush="#161d24" Margin="0 15 0 0">
+                    <Button materialDesign:ButtonAssist.CornerRadius="6" materialDesign:ElevationAssist.Elevation="Dp0" Width="Auto" Height="35" Background="#161d24" BorderBrush="#161d24" Margin="0 300 0 0">
                         <WrapPanel Width="120">
-                            <materialDesign:PackIcon Kind="AccountArrowLeft" VerticalAlignment="Center" Margin="0 0 15 0"/>
-                            <TextBlock>Log Out</TextBlock>
+                            <materialDesign:PackIcon Kind="AccountArrowLeft" VerticalAlignment="Center" Margin="0 0 15 0" Foreground="Red"/>
+                            <TextBlock Foreground="Red">Log Out</TextBlock>
                         </WrapPanel>
                     </Button>
 
