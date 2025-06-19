@@ -21,7 +21,7 @@
                         <Image Source="/Assets/Pictures/logo.png" />
                         <TextBlock Text="MyBank" FontSize="25" FontWeight="Medium" FontFamily="Inter" Foreground="#327b3b" VerticalAlignment="Center"/>
                     </StackPanel>
-                    <Button materialDesign:ButtonAssist.CornerRadius="6" materialDesign:ElevationAssist.Elevation="Dp0" Width="Auto" Height="35" Background="#161d24" BorderBrush="#161d24" Margin="0 15 0 0">
+                    <Button materialDesign:ButtonAssist.CornerRadius="6" materialDesign:ElevationAssist.Elevation="Dp0" Width="Auto" Height="35" Background="#161d24" BorderBrush="#161d24" Margin="0 15 0 0" Click="Button_Click">
                         <WrapPanel Width="120">
                             <materialDesign:PackIcon Kind="Home" VerticalAlignment="Center" Margin="0 0 15 0"/>
                             <TextBlock>Home</TextBlock>
@@ -62,9 +62,10 @@
                             <TextBlock Foreground="Red">Log Out</TextBlock>
                         </WrapPanel>
                     </Button>
-
                 </StackPanel>
             </materialDesign:ColorZone>
+
+            <Frame Grid.Column="1" x:Name="windowFrame" Height="Auto" Width="1000" NavigationUIVisibility="Hidden"/>
 
         </Grid>
     </Border>

@@ -50,7 +50,7 @@ namespace MyBank_Draft2.Windows.Main
             }
         }
         private bool UserExists(out string role)
-        {
+            {
             var possibleCustomer = (from c in db.GetCustomer()
                                     where c.Customer_Email == userIN.Text
                                     select c).FirstOrDefault();

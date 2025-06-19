@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using LiveCharts;
 using MaterialDesignColors;
 using MaterialDesignThemes;
+using MyBank_Draft2.Pages.CustomerWindow;
 
 namespace MyBank_Draft2
 {
@@ -22,9 +23,24 @@ namespace MyBank_Draft2
     /// </summary>
     public partial class CustomerWindow : Window
     {
+        Home homePage;
+
         public CustomerWindow()
         {
             InitializeComponent();
+            ViewHome();
+        }
+
+        public void ViewHome()
+        {
+            homePage = new Home();
+            windowFrame.Content = homePage;
+        }
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ViewHome();
         }
     }
 }
