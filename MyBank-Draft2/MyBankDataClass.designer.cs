@@ -56,12 +56,6 @@ namespace MyBank_Draft2
     partial void DeleteUserWallet(UserWallet instance);
     #endregion
 		
-		public MyBankDataClassDataContext() : 
-				base(global::MyBank_Draft2.Properties.Settings.Default.MyBankConnectionString, mappingSource)
-		{
-			OnCreated();
-		}
-		
 		public MyBankDataClassDataContext(string connection) : 
 				base(connection, mappingSource)
 		{

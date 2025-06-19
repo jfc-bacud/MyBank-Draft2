@@ -12,9 +12,12 @@ namespace MyBank_Draft2
     {
         public MyBankDataClassDataContext db;
 
+        // CONNECTIONSTRING FOR LOCAL, CONNECTIONSTRING1 FOR THINGS IN SCHOOL DESKTOPS
+
         public Database()
         {
-            db = new MyBankDataClassDataContext(Properties.Settings.Default.MyBankConnectionString);
+            db = new MyBankDataClassDataContext(Properties.Settings.Default.MyBankConnectionString1);
+
         }
 
         public List<Customer> GetCustomer()
