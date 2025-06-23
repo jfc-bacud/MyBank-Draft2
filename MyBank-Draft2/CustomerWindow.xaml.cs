@@ -24,17 +24,32 @@ namespace MyBank_Draft2
     public partial class CustomerWindow : Window
     {
         Home homePage;
+        Database _localdb;
+        string localUser;
 
-        public CustomerWindow()
+        public CustomerWindow(string userEmail)
         {
             InitializeComponent();
+            RetrieveUser(userEmail);
             ViewHome();
         }
 
         public void ViewHome()
         {
-            homePage = new Home();
+            homeBTN.Background = new SolidColorBrush(Colors.Green);
+            homePage = new Home(localUser);
             windowFrame.Content = homePage;
+        }
+
+        public void RetrieveUser(string userEmail)
+        {
+            _localdb = new Database();
+
+            var user = (from c in _localdb.db.Customers
+                       where c.Customer_Email == userEmail
+                       select c.Users_ID).FirstOrDefault();
+
+            localUser = user.ToString();
         }
 
 
@@ -42,5 +57,7 @@ namespace MyBank_Draft2
         {
             ViewHome();
         }
+
+
     }
 }

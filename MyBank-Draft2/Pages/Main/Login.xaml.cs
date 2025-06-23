@@ -106,7 +106,7 @@ namespace MyBank_Draft2.Windows.Main
         {
             if (role == "Customer")
             {
-                CustomerWindow customerWindow = new CustomerWindow();
+                CustomerWindow customerWindow = new CustomerWindow(userIN.Text);
                 customerWindow.Show();
                 Window.GetWindow(this).Close();
             }

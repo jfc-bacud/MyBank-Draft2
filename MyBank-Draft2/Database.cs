@@ -48,6 +48,14 @@ namespace MyBank_Draft2
 
             return walletList;
         }
+
+        public List<Category> GetCategories()
+        {
+            List<Category> categoryList = (from c in db.Categories
+                                           select c).ToList();
+
+            return categoryList;    
+        }
     }
 }
 

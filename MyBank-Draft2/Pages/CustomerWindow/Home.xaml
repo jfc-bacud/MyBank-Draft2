@@ -20,20 +20,54 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <materialDesign:Card Grid.Row="1" Width="350" Height="450" UniformCornerRadius="8" Background="#1a232c">
-                <lvc:PieChart Name="Chart" Grid.Row="1" Series="{Binding SeriesCollection}" 
-                      LegendLocation="Top" InnerRadius="125" Margin="20">
-                    <lvc:PieChart.ChartLegend>
-                        <lvc:DefaultLegend BulletSize="10" Foreground="White"></lvc:DefaultLegend>
-                    </lvc:PieChart.ChartLegend>
-                    <lvc:PieChart.DataTooltip>
-                        <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
-                    </lvc:PieChart.DataTooltip>
-                </lvc:PieChart>
+            <materialDesign:Card Grid.Row="1" Width="460" Height="450" UniformCornerRadius="8" Background="#1a232c" Grid.ColumnSpan="2" HorizontalAlignment="Left"
+                                 Margin="28 0 0 0">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="350" Height="Auto">
+                    <TextBlock Text="Expense by Category" Foreground="White" FontWeight="Medium" FontFamily="Inter" HorizontalAlignment="Center"
+                               FontSize="25" Margin="0 25 0 0"/>
+
+                    <lvc:PieChart Name="doughnutTransactions" Grid.Row="1" Series="{Binding SeriesCollection}" 
+                         LegendLocation="Bottom" InnerRadius="140" Margin="0 200 0 0" DataTooltip="{x:Null}">
+                        <lvc:PieChart.ChartLegend>
+                            <lvc:DefaultLegend BulletSize="10" Foreground="White" Margin="0 -200 0 200"></lvc:DefaultLegend>
+                        </lvc:PieChart.ChartLegend>
+                    </lvc:PieChart>
+
+                </StackPanel>
             </materialDesign:Card>
 
-            <materialDesign:Card Grid.Row="1" Grid.Column="1" Width="570" Height="450" UniformCornerRadius="8" Background="#1a232c" HorizontalAlignment="Center">
+            <StackPanel Grid.Row="0" Grid.Column="0">
+                <WrapPanel Orientation="Horizontal">
+                    <TextBlock Text="Welcome" Foreground="White" FontSize="35" FontWeight="Medium" FontFamily="Inter" HorizontalAlignment="Left" Margin="30 30 0 17"/>
+                    <TextBlock x:Name="usernameTB" Text="" Foreground="Green" FontSize="35" FontWeight="Medium" FontFamily="Inter" HorizontalAlignment="Left" Margin="10 30 0 17"/>
+                </WrapPanel>
+                <materialDesign:Card Height="110" Width="350" Margin="0 0 0 0" UniformCornerRadius="8" Background="#1a232c"/>
+            </StackPanel>
 
+
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                <materialDesign:Card Grid.Row="0" Grid.Column="1" Height="110" Width="270" Margin="0 90 0 0" UniformCornerRadius="8" Background="#1a232c">
+
+                </materialDesign:Card>
+                
+                <materialDesign:Card Grid.Row="0" Grid.Column="1" Height="110" Width="270" Margin="30 90 0 0" UniformCornerRadius="8" Background="#1a232c">
+
+                </materialDesign:Card>
+            </StackPanel>
+
+
+            <materialDesign:Card Grid.Row="1" Grid.Column="1" Width="460" Height="450" UniformCornerRadius="8" Background="#1a232c" HorizontalAlignment="Right">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="350" Height="Auto">
+                    <TextBlock Text="Income by Category" Foreground="White" FontWeight="Medium" FontFamily="Inter" HorizontalAlignment="Center"
+                FontSize="25" Margin="0 25 0 0"/>
+
+                    <lvc:PieChart Name="doughnutIncome" Grid.Row="1" Series="{Binding SeriesCollection}" 
+                         LegendLocation="Bottom" InnerRadius="140" Margin="0 200 0 0" DataTooltip="{x:Null}">
+                        <lvc:PieChart.ChartLegend>
+                            <lvc:DefaultLegend BulletSize="10" Foreground="White" Margin="0 -200 0 200"></lvc:DefaultLegend>
+                        </lvc:PieChart.ChartLegend>
+                    </lvc:PieChart>
+                </StackPanel>
             </materialDesign:Card>
 
 
