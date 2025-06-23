@@ -10,11 +10,14 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using MaterialDesignThemes.Wpf;
 using LiveCharts;
 using LiveCharts.Wpf;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.InteropServices;
+using System.Globalization;
+
 
 namespace MyBank_Draft2.Pages.CustomerWindow
 {
@@ -25,6 +28,7 @@ namespace MyBank_Draft2.Pages.CustomerWindow
     {
         Database _localdb;
         string localUser;
+        string currencyUsed;
         public Home(string user)
         {
             InitializeComponent();
@@ -38,6 +42,7 @@ namespace MyBank_Draft2.Pages.CustomerWindow
             LoadExpense();
             LoadIncome();
             RetrieveUser();
+            RetrieveWallet();
         }
 
         void LoadIncome()
@@ -124,7 +129,6 @@ namespace MyBank_Draft2.Pages.CustomerWindow
 
                 doughnutTransactions.Series = pieSeries;
         }
-
         void RetrieveUser()
         {
             var username = (from c in _localdb.db.Customers
@@ -132,6 +136,83 @@ namespace MyBank_Draft2.Pages.CustomerWindow
                             select c.Customer_FirstName).FirstOrDefault();
 
             usernameTB.Text = username.ToString() + "!";
+        }
+        void RetrieveWallet()
+        {
+            var userWallet = (from c in _localdb.db.Customers
+                             where c.Users_ID == localUser
+                             join u in _localdb.db.UserWallets on c.UserWallet_ID equals u.UserWallet_ID
+                             select u).FirstOrDefault();
+
+            RetrieveCurrency(userWallet);
+
+            balanceTB.Text = currencyUsed + userWallet.UserWallet_Balance.ToString();
+
+            RetrieveCurrencyIcon(userWallet.UserWallet_Currency.ToString());
+            RetrieveExpenses();
+            RetrieveIncome();
+        }
+        void RetrieveExpenses()
+        {
+            var _expenses = from t in _localdb.db.Transactions
+                            where t.Users_ID == localUser
+                            join c in _localdb.db.Categories on t.Category_ID equals c.Category_ID
+                            where c.Category_Type == "Expense"
+                            group t by t.Transaction_Desc into g
+                            select new
+                            {
+                                CategoryName = g.Key,
+                                TotalAmount = g.Sum(t => t.Amount)
+                            };
+
+            expenseTB.Text = currencyUsed + _expenses.Sum(e => e.TotalAmount).ToString();
+        }
+        void RetrieveIncome()
+        {
+            var _income = from t in _localdb.db.Transactions
+                          where t.Users_ID == localUser
+                          join c in _localdb.db.Categories on t.Category_ID equals c.Category_ID
+                          where c.Category_Type == "Income"
+                          group t by t.Transaction_Desc into g
+                          select new
+                          {
+                              CategoryName = g.Key,
+                              TotalAmount = g.Sum(t => t.Amount)
+                          };
+
+            incomeTB.Text = currencyUsed + _income.Sum(e => e.TotalAmount).ToString();
+        }
+        void RetrieveCurrency(UserWallet wallet)
+        {
+            string walletCurrency = wallet.UserWallet_Currency.ToString();
+            var cultures = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
+
+            foreach (var culture in cultures)
+            {
+                RegionInfo region = new RegionInfo(culture.LCID);
+                if (region.ISOCurrencySymbol == walletCurrency)
+                {
+                    currencyUsed = region.CurrencySymbol;
+                }
+            }
+        }
+        void RetrieveCurrencyIcon(string currency)
+        {
+            string newCurrency = null;
+
+            for (int x = 0; x < currency.Length; x++)
+            {
+                if (x == 0)
+                {
+                    newCurrency += currency[x];
+                }
+                else
+                {
+                    newCurrency += char.ToLower(currency[x]);
+                }
+            }
+
+            CurrencyIcon.Kind = (PackIconKind)Enum.Parse(typeof(PackIconKind), "Currency" + newCurrency);
         }
     }
 }
