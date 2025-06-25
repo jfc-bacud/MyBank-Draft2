@@ -1,0 +1,158 @@
+﻿<Page x:Class="MyBank_Draft2.Pages.CustomerWindow.TransactionsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      xmlns:local="clr-namespace:MyBank_Draft2.Pages.CustomerWindow"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1000"
+      Title="TransactionsPage">
+
+
+    <Page.Resources>
+        <Style TargetType="GridViewColumnHeader">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#1a2129"/>
+            <Setter Property="Padding" Value="15,10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
+                        <Grid>
+                            <Border x:Name="HeaderBorder"
+                                    BorderThickness="0"
+                                    Background="{TemplateBinding Background}"
+                                    Padding="{TemplateBinding Padding}">
+                                <ContentPresenter x:Name="HeaderContent"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
+                            </Border>
+                            <Thumb x:Name="PART_HeaderGripper"
+                                   HorizontalAlignment="Right"
+                                   Margin="0,0,-6,0"
+                                   Width="10"
+                                   Background="Transparent"
+                                   Visibility="Collapsed" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="HeaderBorder" Property="Background" Value="#4C4C50"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="HeaderBorder" Property="Background" Value="#5C5C60"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ListView">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="False"/>
+        </Style>
+
+    </Page.Resources>
+
+    <Border CornerRadius="0 20 20 0" Background="#12171d" BorderBrush="Black" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition Width="400"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="1">
+                <WrapPanel Margin="20" Orientation="Horizontal" Grid.Row="1">
+                    <TextBlock Text="Transactions" Foreground="White" FontSize="32" FontWeight="Medium" FontFamily="Inter" Margin="30 0 0 0"/>
+                    <Button x:Name="addTransactionBTN" materialDesign:ButtonAssist.CornerRadius="6" materialDesign:ElevationAssist.Elevation="Dp0" Width="160" Height="35" Background="Green" BorderBrush="Green" Margin="160 0 0 0">
+                        <WrapPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Add" VerticalAlignment="Center" Margin="0 0 5 0">
+                                <materialDesign:PackIcon.Effect>
+                                    <DropShadowEffect ShadowDepth="0" Direction="0" Color="White" Opacity="0.6" BlurRadius="3"/>
+                                </materialDesign:PackIcon.Effect>
+                            </materialDesign:PackIcon>
+                            <TextBlock>Add Transaction</TextBlock>
+                        </WrapPanel>
+                    </Button>
+                </WrapPanel>
+
+                <materialDesign:Card Background="#131a22" Grid.Row="1" Grid.Column="0" UniformCornerRadius="8" Width="500" Height="500" VerticalAlignment="Center">
+                    <StackPanel>
+                        <ListView ItemsSource="{Binding Transactions}"
+                  BorderThickness="0">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Transaction" Width="200"/>
+                                    <GridViewColumn Header="Date" Width="100">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Date, StringFormat={}{0:MMM-dd-yy}}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn Header="Amount" Width="100"/>
+                                    <GridViewColumn Header="Actions" Width="100"/>
+
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
+                </materialDesign:Card>
+            </StackPanel>
+
+            <materialDesign:Card Background="#131a22" Grid.Row="1" Grid.Column="1" UniformCornerRadius="8" Width="355" Height="500" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 5 0 0">
+                <StackPanel x:Name="informationPanel" Margin="20">
+                    <TextBlock Text="Category Type" Foreground="White" FontSize="15" FontWeight="Medium" FontFamily="Inter" Margin="0 0 0 5"/>
+                    <Border CornerRadius="3" BorderThickness="0.5" Background="#1a1c1e" BorderBrush="White" Height="30">
+                        <ComboBox x:Name="categoryCB" Margin="3"
+                                  materialDesign:TextFieldAssist.UnderlineBrush="#131a22"
+                                  materialDesign:HintAssist.Hint="Select Item"
+                                  Foreground="White"/>
+                    </Border>
+
+                    <TextBlock Text="Date" Foreground="White" FontSize="15" FontWeight="Medium" FontFamily="Inter" Margin="0 10 0 5"/>
+                    <Border CornerRadius="3" BorderThickness="0.5" Background="#1a1c1e" BorderBrush="White" Height="30">
+                        <DatePicker x:Name="datePicker" Margin="2" Foreground="White" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" 
+                                    materialDesign:HintAssist.Hint="Select a Date"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent" >
+                        </DatePicker>
+                    </Border>
+
+                    <TextBlock Text="Amount" Foreground="White" FontSize="15" FontWeight="Medium" FontFamily="Inter" Margin="0 10 0 5"/>
+                    <Border CornerRadius="3" BorderThickness="0.5" Background="#1a1c1e" BorderBrush="White" Height="30">
+
+                    </Border>
+
+
+                    <TextBlock Text="Transaction Description" Foreground="White" FontSize="15" FontWeight="Medium" FontFamily="Inter" Margin="0 10 0 5"/>
+                    <Border CornerRadius="3" BorderThickness="0.5" Background="#1a1c1e" BorderBrush="White" Height="120">
+                        <TextBox x:Name="TransactionNameTB" materialDesign:HintAssist.Background="Transparent"  materialDesign:TextFieldAssist.UnderlineBrush="Transparent" CaretBrush="Green"
+                                 TextWrapping="Wrap" Foreground="White" VerticalScrollBarVisibility="Auto"
+                                 HorizontalAlignment="Center" VerticalContentAlignment="Top" Width="310" Height="118"/>
+                    </Border>
+
+                </StackPanel>
+            </materialDesign:Card>
+
+
+        </Grid>
+    </Border>
+</Page>

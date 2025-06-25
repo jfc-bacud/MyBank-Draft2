@@ -25,6 +25,7 @@ namespace MyBank_Draft2
     {
         Home homePage;
         Database _localdb;
+        TransactionsPage transactionPage;
         string localUser;
 
         public CustomerWindow(string userEmail)
@@ -58,6 +59,10 @@ namespace MyBank_Draft2
             ViewHome();
         }
 
-
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            transactionPage = new TransactionsPage(localUser);
+            windowFrame.Content = transactionPage;
+        }
     }
 }

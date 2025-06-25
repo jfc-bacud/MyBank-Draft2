@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MyBank_Draft2"
         mc:Ignorable="d"
-            Title="Customer Window" Height="700" Width="1200" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+        Title="Customer Window" Height="700" Width="1200" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
     <Border CornerRadius="20" Background="#12171d" BorderBrush="Black" >
         <Grid>
             <Grid.ColumnDefinitions>
@@ -30,7 +30,7 @@
                         </WrapPanel>
                     </Button>
 
-                    <Button materialDesign:ButtonAssist.CornerRadius="6" materialDesign:ElevationAssist.Elevation="Dp0" Width="Auto" Height="35" Background="#161d24" BorderBrush="#161d24" Margin="0 15 0 0">
+                    <Button materialDesign:ButtonAssist.CornerRadius="6" materialDesign:ElevationAssist.Elevation="Dp0" Width="Auto" Height="35" Background="#161d24" BorderBrush="#161d24" Margin="0 15 0 0" Click="Button_Click_1">
                         <WrapPanel Width="120">
                             <materialDesign:PackIcon Kind="SwapHorizontal" VerticalAlignment="Center" Margin="0 0 15 0"/>
                             <TextBlock>Transactions</TextBlock>

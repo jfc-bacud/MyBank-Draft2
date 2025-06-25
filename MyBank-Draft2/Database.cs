@@ -16,7 +16,7 @@ namespace MyBank_Draft2
 
         public Database()
         {
-            db = new MyBankDataClassDataContext(Properties.Settings.Default.MyBankConnectionString);
+            db = new MyBankDataClassDataContext(Properties.Settings.Default.MyBankConnectionString1);
 
         }
 

@@ -44,11 +44,11 @@
     <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignColors, Version=5.2.2.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignColors.5.2.2-ci998\lib\net462\MaterialDesignColors.dll</HintPath>
+    <Reference Include="MaterialDesignColors, Version=5.2.1.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.5.2.1\lib\net462\MaterialDesignColors.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignThemes.Wpf, Version=5.2.2.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignThemes.5.2.2-ci998\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=5.2.1.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.5.2.1\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.135\lib\net462\Microsoft.Xaml.Behaviors.dll</HintPath>
@@ -76,6 +76,9 @@
     </ApplicationDefinition>
     <Compile Include="Pages\CustomerWindow\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CustomerWindow\TransactionsPage.xaml.cs">
+      <DependentUpon>TransactionsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Main\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -108,6 +111,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\CustomerWindow\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CustomerWindow\TransactionsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,11 +186,11 @@
     <Resource Include="Assets\Pictures\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\MaterialDesignThemes.5.2.2-ci998\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.2.2-ci998\build\MaterialDesignThemes.targets')" />
+  <Import Project="..\packages\MaterialDesignThemes.5.2.1\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.2.1\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\MaterialDesignThemes.5.2.2-ci998\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.5.2.2-ci998\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.5.2.1\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.5.2.1\build\MaterialDesignThemes.targets'))" />
   </Target>
 </Project>
